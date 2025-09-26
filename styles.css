@@ -15,9 +15,12 @@ body {
     font-smooth: never;
 
     /* Patrón de estrellas usando un degradado radial repetido */
-    background-image: radial-gradient(white 1px, transparent 1px);
+    background-image: radial-gradient(rgb(255, 255, 255) 1px, transparent 1px);
     background-size: 15px 15px; /* Tamaño del espacio entre puntos */
     
+    /* Animación del fondo */
+    animation: move-background 10s linear infinite;
+
     /* Centra la ventana principal */
     display: flex;
     flex-direction: column;
@@ -26,6 +29,16 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 15px;
+}
+
+/* Define la animación para mover el fondo */
+@keyframes move-background {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 150px 150px; /* La distancia de movimiento */
+    }
 }
 
 /* La ventana principal que contiene todo */
@@ -173,4 +186,34 @@ a:hover {
     height: 48px;       /* Ajusta esto a la altura de tu GIF */
     image-rendering: pixelated; /* Mantiene el estilo pixelado */
     z-index: 10;        /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+/* --- Estilos para la nueva ventana de lenguajes --- */
+
+/* Margen para separar las ventanas */
+.languages-window, .tools-window {
+    margin-top: 25px;
+}
+
+/* Contenedor de la lista de lenguajes y herramientas */
+.languages ul, .tools ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para cada elemento de la lista (lenguaje y herramienta) */
+.languages li, .tools li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Estilo para el icono del lenguaje y herramienta */
+.lang-icon, .tool-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #FFFFFF;
+    image-rendering: pixelated;
 }
